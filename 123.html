@@ -9,14 +9,52 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
   <style>
+    #wrapper {
+      background-color: #fff;
+      max-width: 970px;
+    }
+    #side {
+      background-color: #ddd;
+    }
+    #main {
+      background-color: #aaa;
+    }
+    .resume {
+      padding: 50px;
+    }
     .banner img {
       width: 100%;
       height: 100%;
     }
+    .profile {
+      text-align: center;
+    }
+    .image {
+      width: 300px;
+    }
+
+    .title {
+      font-size: 20pt;
+    }
+    body {
+      position: relative;
+    }
   </style>
+  <script type="text/javascript">
+    $(function(){
+      $("ul>li>a").click(function(event){
+        event.preventDefault();
+        var ref=$(this).attr("href");
+      $("body, html").animate({scrollTop: $(ref).offset().top}, 1000);
+      })
+      $('body').scrollspy({ traget: '#navbar-example'})
+    });
+  </script>
 </head>
-<body>
-  <div>
+
+<body data-spy="scroll" data-target="#navbar-example">
+  <div id="index">
+    <nav class="navbar navbar-default navbar-fixed-top">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,9 +71,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首頁</a></li>
-            <li><a href="#">個人介紹</a></li>
-            <li><a href="#">相片集</a></li>
+            <li class="active"><a href="#index">首頁</a></li>
+            <li><a href="#about">個人介紹</a></li>
+            <li><a href="#album">相片集</a></li>
 
           </ul>
 
@@ -43,8 +81,61 @@
       </div><!-- /.container-fluid -->
     </nav>
   </div>
+
   <div class="banner">
     <img src="2016-08-10 10.49.37.jpg" class="img-responsive">
+  </div>
+  <div id="about" class="resume">
+    <div class="row">
+      <div id="side" class="col-md-4 col-sm-8 col-xs-12">
+        <div class="profile">
+          <img src="snoopy.jpg" class="img-circle image">
+          <h2 class="font-white text-center">Snoopy</h2>
+          <h4 class="font-white text-center">Dog</h4>
+          <h6 class="font-white">1. </h6>
+        </div>
+      </div>
+      <div id="main" class="col-md-8 col-sm-4 col-xs-12">
+        <div class="area">
+          <div class="title">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <span>個人簡介</span>
+
+          </div>
+          <div class="content">
+            <p>史努比（Snoopy)是美國漫畫家查爾斯·舒茲從1950年代起連載的漫畫作品《花生漫畫》中，主人翁查理布朗養的一隻黑白花的米格魯犬。它也出現在查理布朗的電影和電視劇。舒爾茲小時候養的寵物狗派克（Spike）是創作史努比的靈感來源。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="album" class="album">
+    <div class="row">
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <img class="img-thumbnail" src="tree.jpg">
+      </div>
+    </div>
   </div>
 
 </body>
